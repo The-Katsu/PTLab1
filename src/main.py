@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import argparse
 import sys
-from ratings.src.CalcRating import CalcRating
-from ratings.src.TextDataReader import TextDataReader
+from src.CalcRating import CalcRating
+from src.TextDataReader import TextDataReader
 
 
 def get_path_from_arguments(args) -> str:
