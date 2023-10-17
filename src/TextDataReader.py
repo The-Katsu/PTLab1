@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from ratings.src.Types import DataType
-from ratings.src.DataReader import DataReader
+from src.Types import DataType
+from src.DataReader import DataReader
 
 
 class TextDataReader(DataReader):
