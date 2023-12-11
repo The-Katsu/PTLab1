@@ -2,6 +2,7 @@
 import argparse
 import sys
 from src.CalcRating import CalcRating
+from src.CharacteristicsCalculator import CharacteristicsCalculator
 from src.TextDataReader import TextDataReader
 
 
@@ -16,10 +17,10 @@ def get_path_from_arguments(args) -> str:
 def main():
     path = get_path_from_arguments(sys.argv[1:])
     reader = TextDataReader()
-    students = reader.read(path)
-    print("Students: ", students)
-    rating = CalcRating(students).calc()
-    print("Rating: ", rating)
+    students = reader.read_from_yaml(path)
+    calculator = CharacteristicsCalculator(students)
+    excellent_students = calculator.count_excellent_students()
+    print(f"Number of excellent students: {excellent_students}")
 
 
 if __name__ == "__main__":
