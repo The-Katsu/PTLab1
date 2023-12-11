@@ -1,0 +1,31 @@
+@startuml
+
+class Rating {
+  - data: DataType
+  - rating: RatingType
+  + __init__(data: DataType)
+  + calc() : RatingType
+}
+
+class CharacteristicsCalculator {
+  - data: DataType
+  + __init__(data: DataType)
+  + count_excellent_students() : int
+}
+
+interface DataReader {
+  + read(path: str) : DataType
+}
+
+class TextDataReader {
+  - key: str
+  - students: DataType
+  + read(path: str) : DataType
+  + read_from_yaml(path: str) : DataType
+}
+
+DataType --> "1" CalcRating
+DataType --> "1" CharacteristicsCalculator
+DataReader <|.. TextDataReader
+
+@enduml
