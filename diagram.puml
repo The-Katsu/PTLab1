@@ -1,6 +1,7 @@
 @startuml
 
-class Rating {
+
+class CalcRating {
   - data: DataType
   - rating: RatingType
   + __init__(data: DataType)
@@ -21,11 +22,17 @@ class TextDataReader {
   - key: str
   - students: DataType
   + read(path: str) : DataType
-  + read_from_yaml(path: str) : DataType
+}
+
+class YamlDataReader {
+  - key: str
+  - students: DataType
+  + read(path: str) : DataType
 }
 
 DataType --> "1" CalcRating
 DataType --> "1" CharacteristicsCalculator
 DataReader <|.. TextDataReader
+DataReader <|.. YamlDataReader
 
 @enduml
